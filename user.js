@@ -453,7 +453,7 @@ user_pref("security.pki.crlite_mode", 0);
 // user_pref("security.mixed_content.block_display_content", true); // Defense-in-depth
 // -------------------------------------
 // Enable HTTPS-Only mode in all windows [FF76+]
-user_pref("dom.security.https_only_mode", true); // [FF76+]
+user_pref("dom.security.https_only_mode", false); // [FF76+]
 // user_pref("dom.security.https_only_mode_pbm", true); // [FF80+]
 // -------------------------------------
 // Enable HTTPS-Only mode for local resources [FF77+]
@@ -481,7 +481,7 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 // REFERERS
 // >>>>>>>>>>>>>>>>>>>>>
 //
-/ Control the amount of cross-origin information to send [FF52+]
+// Control the amount of cross-origin information to send [FF52+]
 // 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 //
@@ -509,10 +509,10 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // Force exclusion of private IPs from ICE candidates [FF51+]
 // user_pref("media.peerconnection.ice.no_host", true);
 // -------------------------------------
-// Disable GMP (Gecko Media Plugins)
-user_pref("media.gmp-provider.enabled", false);
+// Enable GMP (Gecko Media Plugins)
+user_pref("media.gmp-provider.enabled", true);
 user_pref("media.gmp-manager.url", "");
-user_pref("media.gmp-gmpopenh264.enabled", false);
+user_pref("media.gmp-gmpopenh264.enabled", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DOM (DOCUMENT OBJECT MODEL)
@@ -571,7 +571,7 @@ user_pref("browser.urlbar.filter.javascript", true);
 // DOWNLOADS
 //
 // Enable user interaction for security by always asking where to download
-user_pref("browser.download.useDownloadDir", false);
+user_pref("browser.download.useDownloadDir", true);
 // -------------------------------------
 // Disable downloads panel opening on every download [FF96+]
 user_pref("browser.download.alwaysOpenPanel", false);
@@ -620,18 +620,18 @@ user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 user_pref("privacy.clearOnShutdown.cache", true);
 user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.formdata", true); // [DEFAULT: true]
-user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT: true]
+user_pref("privacy.clearOnShutdown.history", false); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT: true]
-// user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
+user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
 // -------------------------------------
 // Set Session Restore to clear on shutdown [FF34+]
 // user_pref("privacy.clearOnShutdown.openWindows", true);
 //
 // SANITIZE ON SHUTDOWN: RESPECTS "ALLOW" SITE EXCEPTIONS FF103+
 //
-// Set "Cookies" and "Site Data" to clear on shutdown
-user_pref("privacy.clearOnShutdown.cookies", true); // Cookies
-user_pref("privacy.clearOnShutdown.offlineApps", true); // Site Data
+// Set "Cookies" and "Site Data" to NOT clear on shutdown
+user_pref("privacy.clearOnShutdown.cookies", false); // Cookies
+user_pref("privacy.clearOnShutdown.offlineApps", false); // Site Data
 //
 // SANITIZE MANUAL: IGNORES "ALLOW" SITE EXCEPTIONS
 //
@@ -715,8 +715,8 @@ user_pref("webgl.disabled", true);
 // Disable intermediate certificate caching [FF41+] [RESTART]
 // user_pref("security.nocertdb", true); //
 // -------------------------------------
-// Disable favicons in history and bookmarks
-user_pref("browser.chrome.site_icons", false);
+// Enable favicons in history and bookmarks
+user_pref("browser.chrome.site_icons", true);
 // -------------------------------------
 // Exclude "Undo Closed Tabs" in Session Restore
 // user_pref("browser.sessionstore.max_tabs_undo", 0);
@@ -781,7 +781,7 @@ user_pref("gfx.webrender.all", true);
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Disable MathML (Mathematical Markup Language) [FF51+]
-user_pref("mathml.disabled", true);
+user_pref("mathml.disabled", false);
 // -------------------------------------
 // Disable in-content SVG (Scalable Vector Graphics) [FF53+]
 // user_pref("svg.disabled", true);
@@ -826,12 +826,12 @@ user_pref("browser.eme.ui.enabled", false);
 //
 // Disable Firefox blocklist
 user_pref("extensions.blocklist.enabled", false); // [DEFAULT: true]
-user_pref("extensions.blocklist.addonItemURL", "");	
+user_pref("extensions.blocklist.addonItemURL", "");
 user_pref("extensions.blocklist.detailsURL", "");
 user_pref("extensions.blocklist.itemURL", "");
 user_pref("services.blocklist.addons.collection", "");
 user_pref("services.blocklist.addons.signer", "");
-user_pref("services.blocklist.plugins.collection", "");	
+user_pref("services.blocklist.plugins.collection", "");
 user_pref("services.blocklist.plugins.signer", "");
 user_pref("services.blocklist.gfx.collection", "");
 user_pref("services.blocklist.gfx.signer", "");
@@ -954,8 +954,8 @@ user_pref("gfx.offscreencanvas.enabled", false);
 // Disable Clipboard API
 // user_pref("dom.event.clipboardevents.enabled", false);
 // -------------------------------------
-// Disable System Add-on updates
-user_pref("extensions.systemAddon.update.enabled", false); // [FF62+]
+// Enable System Add-on updates
+user_pref("extensions.systemAddon.update.enabled", true); // [FF62+]
 user_pref("extensions.systemAddon.update.url", ""); // [FF44+]
 // -------------------------------------
 // Enable the DNT (Do Not Track) HTTP header
@@ -1055,17 +1055,17 @@ user_pref("browser.warnOnQuit", false);
 // Disable auto-INSTALLING Firefox updates [NON-WINDOWS]
 user_pref("app.update.auto", false);
 // -------------------------------------
-// Disable auto-CHECKING for extension and theme updates
-user_pref("extensions.update.enabled", false);
+// Enable auto-CHECKING for extension and theme updates
+user_pref("extensions.update.enabled", true);
 // -------------------------------------
-// Disable auto-INSTALLING extension and theme updates
-user_pref("extensions.update.autoUpdateDefault", false);
+// Enable auto-INSTALLING extension and theme updates
+user_pref("extensions.update.autoUpdateDefault", true);
 // -------------------------------------
-// Disable extension metadata
-user_pref("extensions.getAddons.cache.enabled", false);
+// Enable extension metadata
+user_pref("extensions.getAddons.cache.enabled", true);
 // -------------------------------------
-// Disable search engine updates (e.g. OpenSearch)
-user_pref("browser.search.update", false);
+// Enable search engine updates (e.g. OpenSearch)
+user_pref("browser.search.update", true);
 //
 // CONTENT BEHAVIOR
 //
@@ -1087,9 +1087,9 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited"
 //
 user_pref("extensions.pocket.enabled", false); // Pocket Account [FF46+]
 user_pref("extensions.screenshots.disabled", true); // [FF55+]
-user_pref("identity.fxaccounts.enabled", false); // Firefox Accounts & Sync [FF60+] [RESTART]
+user_pref("identity.fxaccounts.enabled", true); // Firefox Accounts & Sync [FF60+] [RESTART]
 user_pref("reader.parse-on-load.enabled", false); // Reader View
-user_pref("browser.tabs.firefox-view", false); // Firefox-view
+user_pref("browser.tabs.firefox-view", true); // Firefox-view
 //
 // OTHER
 //
