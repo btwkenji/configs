@@ -246,7 +246,6 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // PREF: enable Firefox Sync
 user_pref("identity.fxaccounts.enabled", false);
-
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
